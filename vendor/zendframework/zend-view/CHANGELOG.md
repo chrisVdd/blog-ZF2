@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.6.7 - 2016-04-18
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#58](https://github.com/zendframework/zend-view/pull/58) updates the `url()`
+  helper so that it can work with either the zend-mvc v2 router subcomponent or
+  zend-router.
+
+## 2.6.6 - 2016-04-18
+
+### Added
+
+- [#57](https://github.com/zendframework/zend-view/pull/57) adds
+  `Zend\View\Helper\TranslatorAwareTrait`, which provides implementation for
+  `Zend\I18n\Translator\TranslatorAwareInterface`, and allowed removal of
+  duplicated implementations in several helpers.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#57](https://github.com/zendframework/zend-view/pull/57) removes the explicit
+  dependency on `Zend\I18n\Translator\TranslatorAwareInterface` by allowing
+  helpers to duck type the interface to receive a translator during
+  instantiation; this allows such helpers to work even when zend-i18n is not
+  installed. The following helpers were updated to duck type the interface
+  instead of implement it explicitly:
+  - `FlashMessenger`
+  - `HeadTitle`
+  - all `Navigation` helpers
+
 ## 2.6.5 - 2016-03-21
 
 ### Added
