@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '34901568a1e26d13dd475cb2c85e0284' => __DIR__ . '/..' . '/zendframework/zend-form/autoload/formElementManagerPolyfill.php',
     );
 
@@ -68,7 +69,9 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Console\\' => 26,
         ),
         'P' => 
         array (
@@ -81,6 +84,9 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\DBAL\\Migrations\\' => 25,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\' => 16,
         ),
     );
 
@@ -293,9 +299,17 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-authentication/src',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/console',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -309,6 +323,18 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Doctrine\\DBAL\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/DBAL/Migrations',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -321,6 +347,18 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         ),
         'Z' => 
         array (
+            'ZfcUserDoctrineORM' => 
+            array (
+                0 => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src',
+            ),
+            'ZfcUser' => 
+            array (
+                0 => __DIR__ . '/..' . '/zf-commons/zfc-user/src',
+            ),
+            'ZfcBase' => 
+            array (
+                0 => __DIR__ . '/..' . '/zf-commons/zfc-base/src',
+            ),
             'ZendXml\\' => 
             array (
                 0 => __DIR__ . '/..' . '/zendframework/zendxml/library',
@@ -348,16 +386,48 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
             array (
                 0 => __DIR__ . '/..' . '/psr/log',
             ),
+            'ProxyManager\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
         ),
-        'A' => 
+        'D' => 
         array (
-            'Application' => 
+            'Doctrine\\ORM\\' => 
             array (
-                0 => __DIR__ . '/../..' . '/module/Application/src',
+                0 => __DIR__ . '/..' . '/doctrine/orm/lib',
+            ),
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
+            ),
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
+            'Doctrine\\Common\\Inflector\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+            'Doctrine\\Common\\Annotations\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
+            ),
+            'DoctrineORMModule\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/doctrine-orm-module/src',
+            ),
+            'DoctrineModule\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/doctrine-module/src',
             ),
         ),
     );
@@ -799,6 +869,12 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'Zend\\I18n\\Translator\\Resources' => __DIR__ . '/..' . '/zendframework/zend-i18n-resources/src/Resources.php',
+        'ZfcBase\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-base/Module.php',
+        'ZfcUserDoctrineORM\\Entity\\User' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Entity/User.php',
+        'ZfcUserDoctrineORM\\Mapper\\User' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Mapper/User.php',
+        'ZfcUserDoctrineORM\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/Module.php',
+        'ZfcUserDoctrineORM\\Options\\ModuleOptions' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Options/ModuleOptions.php',
+        'ZfcUser\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-user/Module.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

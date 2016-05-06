@@ -8,6 +8,8 @@
 
 namespace Application\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Class AbstractEntity
  * @package Application\Entity
@@ -16,7 +18,36 @@ abstract class AbstractEntity
 {
 
     /**
-     * @return mixed
+     * Primary Identifier
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer", options={"unsigned" = true})
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @var integer
+     */
+    protected $id;
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function setId($id) {
+
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId() {
+
+        return $this->id;
+    }
+
+    /**
+     * @return array
      */
     public function getArrayCopy() {
 
@@ -41,15 +72,4 @@ abstract class AbstractEntity
             }
         }
     }
-
-    /**
-     * @param $propertyName
-     * @return string
-     */
-    private function getSetterMethod($propertyName) {
-
-        return "set" . str_replace(' ', '', ucwords(str_replace('_', ' ', $propertyName)));
-
-    }
-
 }

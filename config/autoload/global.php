@@ -11,39 +11,4 @@
  * file.
  */
 
-return
-[
-    'doctrine' =>
-    [
-        'connection' =>
-        [
-            'orm_default' =>
-            [
-                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
-                'params' =>
-                [
-                    'hots'          => 'localhost',
-                    'port'          => '3306',
-                    'user'          => 'root',
-                    'password'      => 'root',
-                    'dbname'        => 'blog',
-                    'charset'       => 'utf8',
-                    'driverOptions' =>
-                    [
-                        1002 => 'SET NAMES utf8',
-                    ],
-                ],
-            ],
-        ],
-        'migrations_configurations' =>
-        [
-            'orm_default' =>
-            [
-                'name'       => 'Application Migrations',
-                'directory'  => __DIR__ . "/../../migrations",
-                'namespace'  => 'Application\Migrations',
-                'table_name' => 'doctrine_migrations',
-            ],
-        ],
-    ],
-];
+return [];

@@ -1,0 +1,18 @@
+LISTE DES COMMANDES DOCTRINE:
+
+    > vagrant ssh
+    > cd /var/www
+    > php ./vendor/bin/doctrine-module
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+J'AI FAIT DES MODIFS DANS UNE ENTITE:
+
+    > vagrant ssh
+    > cd /var/www
+    > php ./vendor/bin/doctrine-module migrations:diff
+
+    * Un fichier de migration est alors ajouté dans le dossier migrations.
+      Il faut donc faire cette migration.
+
+    > php ./vendor/bin/doctrine-module migrations:migrate

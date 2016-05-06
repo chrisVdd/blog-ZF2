@@ -99,11 +99,35 @@ return
             [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => [ __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity' ],
+                'paths' =>
+                [
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ],
             ],
             'orm_default' =>
             [
-                'drivers' => [ __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver' ]
+                'drivers' =>
+                [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                ],
+            ],
+        ],
+        'configuration' =>
+        [
+            'orm_default' =>
+            [
+                'generate_proxies' => true,
+            ],
+        ],
+        'authentication' =>
+        [
+            'orm_default' =>
+            [
+                'object_manager'      => 'Doctrine\ORM\EntityManager',
+                'identity_class'      => 'Application\Entity\User',
+                'identity_property'   => 'username',
+                'credential_property' => 'password',
+                'credential_callable' => 'Application\Service\UserService::verifyHashedPassword',
             ],
         ],
     ],
