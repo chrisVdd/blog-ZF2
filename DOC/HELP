@@ -13,6 +13,10 @@ J'AI FAIT DES MODIFS DANS UNE ENTITE:
     > php ./vendor/bin/doctrine-module migrations:diff
 
     * Un fichier de migration est alors ajouté dans le dossier migrations.
-      Il faut donc faire cette migration.
+      Il faut donc faire cette migration, via la commande suivante:
 
     > php ./vendor/bin/doctrine-module migrations:migrate
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+INITIALISER UN NOUVEAU PROJET GIT:
