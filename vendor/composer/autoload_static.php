@@ -77,6 +77,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'L' => 
+        array (
+            'LosBase\\' => 8,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -315,6 +319,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'LosBase\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/los/losbase/src',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -395,6 +403,13 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
         ),
+        'L' => 
+        array (
+            'LosBase\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/los/losbase/src',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 
@@ -433,6 +448,7 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
     );
 
     public static $classMap = array (
+        'EdpModuleLayouts\\Module' => __DIR__ . '/..' . '/evandotpro/edp-module-layouts/Module.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',

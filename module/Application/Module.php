@@ -10,29 +10,13 @@
 namespace Application;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
 
-class Module implements AutoloaderProviderInterface, ConfigProviderInterface
+/**
+ * Class Module
+ * @package Admin
+ */
+class Module implements AutoloaderProviderInterface
 {
-    /**
-     * @param MvcEvent $e
-     */
-    public function onBootstrap(MvcEvent $e)
-    {
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConfig()
-    {
-        return include __DIR__ . '/config/module.config.php';
-    }
 
     /**
      * @return array
@@ -40,13 +24,24 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
     public function getAutoloaderConfig()
     {
         return
-        [
-            'Zend\Loader\StandardAutoloader' =>
             [
-                'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ],
-            ],
-        ];
+                'Zend\Loader\StandardAutoloader' =>
+                    [
+                        'namespaces' =>
+                            [
+                                __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__)
+                            ]
+                    ]
+            ];
+    }
+
+    /**
+     * Method used to get the config files
+     *
+     * @return mixed
+     */
+    public function getConfig()
+    {
+        return include __DIR__ . '/config/module.config.php';
     }
 }

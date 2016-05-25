@@ -14,7 +14,9 @@
         "zendframework/zend-developer-tools": "dev-master",
         "doctrine/doctrine-orm-module": "^0.10.0",
         "doctrine/migrations": "^1.4",
-        "zf-commons/zfc-user-doctrine-orm": "^1.0",
-        "los/losbase": "~2.5"
+        "zf-commons/zfc-user": "1.4.4",
+        "zf-commons/zfc-user-doctrine-orm": "1.0.1",
+        "los/losbase": "~2.5",
+        "evandotpro/edp-module-layouts": "^1.0"
     }
 }
