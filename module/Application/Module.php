@@ -24,15 +24,15 @@ class Module implements AutoloaderProviderInterface
     public function getAutoloaderConfig()
     {
         return
+        [
+            'Zend\Loader\StandardAutoloader' =>
             [
-                'Zend\Loader\StandardAutoloader' =>
-                    [
-                        'namespaces' =>
-                            [
-                                __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__)
-                            ]
-                    ]
-            ];
+                'namespaces' =>
+                [
+                    __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__)
+                ]
+            ]
+        ];
     }
 
     /**

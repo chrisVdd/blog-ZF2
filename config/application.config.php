@@ -6,6 +6,7 @@
 return array(
     'modules' => array(
         'Application',
+        'Admin',
         'ZFTool',
         'ZendDeveloperTools',
         'DoctrineModule',
@@ -14,7 +15,6 @@ return array(
         'ZfcUser',
         'ZfcUserDoctrineORM',
         'LosBase',
-        'Admin',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
@@ -27,7 +27,7 @@ return array(
     ),
     'service_manager' => array(
         'aliases' => array(
-            'entity_manager' => 'Doctrine\\ORM\\EntityManager',
+            'entity_manager' => 'Doctrine\ORM\EntityManager',
         ),
     ),
 );

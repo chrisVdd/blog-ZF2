@@ -35,19 +35,6 @@ class Post extends AbstractEntity
 //    TODO: ajouter les auteurs
 //    protected $author;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="create_date", type="datetime")
-     */
-    protected $createDate;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="update_date", type="datetime")
-     */
-    protected $updateDate;
 
     /**
      * @var integer
@@ -63,4 +50,6 @@ class Post extends AbstractEntity
     {
         $this->createDate = new \DateTime();
     }
+    
+    
 }

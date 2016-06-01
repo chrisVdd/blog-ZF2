@@ -29,6 +29,20 @@ abstract class AbstractEntity
     protected $id;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createDate", type="datetime")
+     */
+    protected $createDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updateDate", type="datetime")
+     */
+    protected $updateDate;
+
+    /**
      * @param $id
      * @return $this
      */
@@ -44,6 +58,43 @@ abstract class AbstractEntity
     public function getId() {
 
         return $this->id;
+    }
+
+    /**
+     * @param $createDate
+     * @return $this
+     */
+    public function setCreateDate($createDate) {
+
+        $this->createDate = $createDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreateDate() {
+
+        return $this->createDate;
+    }
+
+    /**
+     * @param $updateDate
+     * @return $this
+     */
+    public function setUpdateDate($updateDate) {
+
+        $this->updateDate = $updateDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdateDate() {
+
+        return $this->updateDate;
+
     }
 
     /**

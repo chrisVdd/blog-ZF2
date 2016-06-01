@@ -57,7 +57,7 @@ $settings =
      *
      * Accepted values: boolean true or false
      */
-    'enable_display_name' => true,
+    'enable_display_name' => false,
 
     /**
      * Modes for authentication identity match
@@ -213,6 +213,7 @@ $settings =
      * User table name
      */
     'table_name' => 'user',
+	'enable_default_entities' => false
     
     /**
      * End of ZfcUser configuration

@@ -18,7 +18,7 @@ return
                 'cache' => 'array',
                 'paths' =>
                 [
-                    __DIR__ . '/../../src/Application/Entity',
+                    __DIR__ . '/../../src/Application/Entity'
                 ],
             ],
             'orm_default' =>
