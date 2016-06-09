@@ -10,5 +10,3 @@ foreach (glob(__DIR__ . '/autoload/*{,.local}.php', GLOB_BRACE) as $file) {
 }
 
 return $config;
-
-

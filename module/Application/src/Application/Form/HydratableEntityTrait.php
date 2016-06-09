@@ -32,7 +32,7 @@ trait HydratableEntityTrait
      */
     public function getHydratorClassName()
     {
-        if (! property_exists($this, 'hydratorName')) {
+        if (!property_exists($this, 'hydratorName')) {
 
             return 'DoctrineObject';
         }

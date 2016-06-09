@@ -19,5 +19,15 @@ return
         [
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
         ],
+        'invokables' =>
+        [
+            'application.service.user'  => 'Application\Service\User',
+            'application.mapper.user'   => 'Application\Mapper\User',
+            'application.listener.user' => 'Application\Listener\User',
+        ],
+        'initializers' =>
+        [
+            'mapper.initializer' => 'Application\Initializer\Mapper',
+        ],
     ],
 ];

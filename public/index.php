@@ -1,4 +1,10 @@
 <?php
+
+error_reporting ( E_ALL & ~ E_DEPRECATED & ~ E_USER_DEPRECATED & ~ E_STRICT );
+ini_set('display_errors', true);
+
+
+
 /**
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.

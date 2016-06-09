@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.7.8 - 2016-05-31
+
+### Added
+
+- [#138](https://github.com/zendframework/zend-mvc/pull/138) adds support for
+  PHP 7 `Throwable`s within each of:
+  - `DispatchListener`
+  - `MiddlewareListener`
+  - The console `RouteNotFoundStrategy` and `ExceptionStrategy`
+  - The HTTP `DefaultRenderingStrategy` and `RouteNotFoundStrategy`
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 2.7.7 - 2016-04-12
 
 ### Added

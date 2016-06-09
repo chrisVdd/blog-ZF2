@@ -12,7 +12,9 @@ return
     [
         'invokables' =>
         [
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'application/index' => 'Application\Controller\IndexController',
+            'application/user'  => 'Application\Controller\UserController',
+            'application/post'  => 'Application\Controller\PostController',
         ],
     ],
 ];

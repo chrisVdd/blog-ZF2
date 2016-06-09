@@ -9,7 +9,6 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ZfcUser\Entity\UserInterface;
 
 /**
  * Class User
@@ -18,7 +17,7 @@ use ZfcUser\Entity\UserInterface;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-abstract class User extends AbstractEntity implements UserInterface
+abstract class User extends AbstractEntity
 {
 
     /**
@@ -90,8 +89,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set username.
      *
-     * @param string $username
-     * @return UserInterface
+     * @param $username
+     * @return $this
      */
     public function setUsername($username)
     {
@@ -112,8 +111,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set email.
      *
-     * @param string $email
-     * @return UserInterface
+     * @param $email
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -134,8 +133,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set password.
      *
-     * @param string $password
-     * @return UserInterface
+     * @param $password
+     * @return $this
      */
     public function setPassword($password)
     {
@@ -156,8 +155,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set firstName.
      *
-     * @param string $firstName
-     * @return UserInterface
+     * @param $firstName
+     * @return $this
      */
     public function setDisplayName($firstName)
     {
@@ -178,8 +177,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set lastName.
      *
-     * @param string $lastName
-     * @return UserInterface
+     * @param $lastName
+     * @return $this
      */
     public function setLastName($lastName)
     {
@@ -200,8 +199,8 @@ abstract class User extends AbstractEntity implements UserInterface
     /**
      * Set status.
      *
-     * @param int $status
-     * @return UserInterface
+     * @param $status
+     * @return $this
      */
     public function setStatus($status)
     {
@@ -215,6 +214,137 @@ abstract class User extends AbstractEntity implements UserInterface
     public function __construct()
     {
         $this->createDate = new \DateTime();
+    }
+
+    /**
+     * @return array
+     */
+    public function getArrayCopy()
+    {
+        return
+        [
+            'id'        => $this->getId(),
+            'username'  => $this->getUsername(),
+            'email'     => $this->getEmail(),
+            'password'  => $this->getPassword(),
+            'firstName' => $this->getFirstName(),
+            'lastName'  => $this->getLastName(),
+            'status'    => $this->getStatus(),
+        ];
+    }
+
+    public function getInputFilterSpecification()
+    {
+        return
+        [
+            [
+                'name'     => 'id',
+                'required' => false,
+            ],
+            [
+                'name' => 'username',
+                'required' => true,
+                'filters'   =>
+                [
+                    ['name' => 'StringTrim'],
+                ],
+                'validators' =>
+                [
+                    [
+                        'name' => 'StringLength',
+                        'options' =>
+                        [
+                            'min' => 3,
+                            'max' => 30
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'firstName',
+                    'required' => true,
+                    'filters'   =>
+                    [
+                        ['name' => 'StripTags'],
+                        ['name' => 'StringTrim'],
+                    ],
+                    'validators' =>
+                    [
+                        [
+                            'name' => 'StringLength',
+                            'options' => ['min' => 0]
+                        ]
+                    ],
+                ],
+                [
+                    'name' => 'lastName',
+                    'required' => true,
+                    'filters'   =>
+                    [
+                        ['name' => 'StripTags'],
+                        ['name' => 'StringTrim'],
+                    ],
+                    'validators' =>
+                    [
+                        [
+                            'name' => 'StringLength',
+                            'options' => ['min' => 0]
+                        ]
+                    ],
+                ],
+                [
+                    'name' => 'email',
+                    'required' => true,
+                    'filters'   =>
+                    [
+                        ['name' => 'StringTrim'],
+                    ],
+                    'validators' =>
+                    [
+                        [
+                            'name' => 'EmailAdress',
+                        ]
+                    ],
+                ],
+                [
+                    'name' => 'password',
+                    'filters' =>
+                    [
+                        ['name' => 'StripTags'],
+                        ['name' => 'StringTrim']
+                    ],
+                    'validators' =>
+                    [
+                        [
+                            'name'    => 'StringLength',
+                            'options' => ['min' => 3]
+                        ],
+                    ],
+                ],
+                [
+                    'name'       => 'status',
+                    'required'   => true,
+                    'filters'    =>
+                    [
+                        ['name' => 'Int'],
+                    ],
+                    'validators' => [
+                        [
+                            'name' => 'InArray',
+                            'options' =>
+                            [
+                                'haystack' =>
+                                [
+                                    static::STATUS_INACTIVE,
+                                    static::STATUS_OFFLINE,
+                                    static::STATUS_ONLINE,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+
+        ];
     }
 
 

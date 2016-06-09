@@ -18,10 +18,10 @@ return
                 [
                     'admin' =>
                     [
-                        'type' => 'Literal',
+                        'type' => 'Segment',
                         'options' =>
                         [
-                            'route' => 'admin',
+                            'route' => '/admin',
                             'defaults' =>
                             [
                                 'controller' => 'Admin\Controller\Home',

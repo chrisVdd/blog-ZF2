@@ -18,7 +18,7 @@ interface HydratableEntityInterface extends ObjectManagerAwareInterface
 {
 
     public function getEntityClassName();
-
+    
     public function getHydratorClassName();
 
 }

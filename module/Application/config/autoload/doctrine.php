@@ -29,6 +29,20 @@ return
                 ],
             ],
         ],
+        'event_manager' =>
+        [
+            'orm_default' =>
+            [
+                'subscribers' =>
+                [
+                    'Gedmo\Tree\TreeListener',
+                    'Gedmo\Timestampable\TimestampableListener',
+                    'Gedmo\Sluggable\SluggableListener',
+                    'Gedmo\Loggable\LoggableListener',
+                    'Gedmo\Sortable\SortableListener'
+                ]
+            ]
+        ],
         'configuration' =>
         [
             'orm_default' =>
@@ -44,7 +58,12 @@ return
                 'identity_class'      => 'Application\Entity\User',
                 'identity_property'   => 'username',
                 'credential_property' => 'password',
-                'credential_callable' => 'Application\Service\UserService::verifyHashedPassword',
+
+//                'credential_callable' => function($identity, $credential) {
+//                    $bdCrypt = new \Zend\Crypt\Password\Bcrypt();
+//                    return $bdCrypt->verify($credential, $identity->getPassword());
+//                }
+//                'credential_callable' => 'Application\Service\UserService::verifyHashedPassword',
             ],
         ],
     ],

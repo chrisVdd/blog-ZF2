@@ -3,31 +3,35 @@
  * Configuration file changed by LosBase
  * The previous configuration file is stored in application.config.old
  */
-return array(
-    'modules' => array(
+return
+[
+    'modules' =>
+    [
         'Application',
         'Admin',
         'ZFTool',
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-        'ZfcBase',
-        'ZfcUser',
-        'ZfcUserDoctrineORM',
         'LosBase',
-    ),
-    'module_listener_options' => array(
-        'module_paths' => array(
+    ],
+    'module_listener_options' =>
+    [
+        'module_paths' =>
+        [
             './module',
             './vendor',
-        ),
-        'config_glob_paths' => array(
-            'config/autoload/{{,*.}global,{,*.}local}.php',
-        ),
-    ),
-    'service_manager' => array(
-        'aliases' => array(
+        ],
+        'config_glob_paths' =>
+        [
+            'config/autoload/{,*.}{global,local,development}.php',
+        ],
+    ],
+    'service_manager' =>
+    [
+        'aliases' =>
+        [
             'entity_manager' => 'Doctrine\ORM\EntityManager',
-        ),
-    ),
-);
+        ],
+    ],
+];

@@ -2,13 +2,12 @@
 
 namespace Admin;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
 /**
  * Class Module
  * @package Admin
  */
-class Module implements AutoloaderProviderInterface
+class Module
 {
 
     /**
@@ -22,7 +21,7 @@ class Module implements AutoloaderProviderInterface
             [
                 'namespaces' =>
                 [
-                    __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__)
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ]
             ]
         ];

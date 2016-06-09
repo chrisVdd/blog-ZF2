@@ -355,18 +355,6 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         ),
         'Z' => 
         array (
-            'ZfcUserDoctrineORM' => 
-            array (
-                0 => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src',
-            ),
-            'ZfcUser' => 
-            array (
-                0 => __DIR__ . '/..' . '/zf-commons/zfc-user/src',
-            ),
-            'ZfcBase' => 
-            array (
-                0 => __DIR__ . '/..' . '/zf-commons/zfc-base/src',
-            ),
             'ZendXml\\' => 
             array (
                 0 => __DIR__ . '/..' . '/zendframework/zendxml/library',
@@ -410,6 +398,13 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
                 0 => __DIR__ . '/..' . '/los/losbase/src',
             ),
         ),
+        'G' => 
+        array (
+            'Gedmo\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 
@@ -443,6 +438,13 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
             'DoctrineModule\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/doctrine-module/src',
+            ),
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator' => 
+            array (
+                0 => __DIR__ . '/..' . '/behat/transliterator/src',
             ),
         ),
     );
@@ -885,12 +887,6 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'Zend\\I18n\\Translator\\Resources' => __DIR__ . '/..' . '/zendframework/zend-i18n-resources/src/Resources.php',
-        'ZfcBase\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-base/Module.php',
-        'ZfcUserDoctrineORM\\Entity\\User' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Entity/User.php',
-        'ZfcUserDoctrineORM\\Mapper\\User' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Mapper/User.php',
-        'ZfcUserDoctrineORM\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/Module.php',
-        'ZfcUserDoctrineORM\\Options\\ModuleOptions' => __DIR__ . '/..' . '/zf-commons/zfc-user-doctrine-orm/src/ZfcUserDoctrineORM/Options/ModuleOptions.php',
-        'ZfcUser\\Module' => __DIR__ . '/..' . '/zf-commons/zfc-user/Module.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

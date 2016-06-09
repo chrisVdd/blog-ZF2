@@ -9,6 +9,7 @@
 namespace Application\Form\User;
 
 use Application\Form\HydratableEntityInterface;
+use Application\Form\HydratableEntityTrait;
 
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
@@ -41,8 +42,11 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     [
                         'label'       => 'username',
                         'required'    => 'required',
-                        'placeholder' => 'username',
-                    ]
+                        'placeholder' => 'Enter username',
+                        'class'       => 'form-control',
+                        'pattern'     => '^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\s.-].{0,}$',
+                    ],
+                    ''
                 ]
             )
 
@@ -54,7 +58,9 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     [
                         'label'       => 'email',
                         'required'    => 'required',
-                        'placeholder' => 'username',
+                        'placeholder' => 'Enter email',
+                        'class'       => 'form-control',
+                        'pattern'     => '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
                     ]
                 ]
             )
@@ -67,7 +73,9 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     [
                         'label'       => 'firstName',
                         'required'    => 'required',
-                        'placeholder' => 'firstName',
+                        'placeholder' => 'Enter firstName',
+                        'class'       => 'form-control',
+                        'pattern'     => '^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\s.-].{0,}$',
                     ],
                 ]
             )
@@ -80,7 +88,9 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     [
                         'label'       => 'lastName',
                         'required'    => 'required',
-                        'placeholder' => 'lastName',
+                        'placeholder' => 'Enter lastName',
+                        'class'       => 'form-control',
+                        'pattern'     => '^[A-Za-z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\s.-].{0,}$',
                     ],
                 ]
             )
@@ -90,11 +100,12 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     'name'       => 'password',
                     'type'       => 'password',
                     'attributes' =>
-                        [
-                            'label'       => 'password',
-                            'required'    => 'required',
-                            'placeholder' => 'password',
-                        ],
+                    [
+                        'label'       => 'password',
+                        'required'    => 'required',
+                        'placeholder' => 'Enter password',
+                        'class'       => 'form-control'
+                    ],
                 ]
             )
 
@@ -103,19 +114,107 @@ class Register extends Form implements HydratableEntityInterface, InputFilterPro
                     'name'       => 'passwordVerify',
                     'type'       => 'password',
                     'attributes' =>
-                        [
-                            'label'       => 'passwordVerify',
-                            'required'    => 'required',
-                            'placeholder' => 'Password Verify',
-                        ],
+                    [
+                        'label'       => 'passwordVerify',
+                        'required'    => 'required',
+                        'placeholder' => 'Password Verify',
+                        'class'       => 'form-control'
+                    ],
                 ]
             )
-        ;
+            ->setValidationGroup(
+                'username',
+                'email',
+                'firstName',
+                'lastName',
+                'password',
+                'passwordVerify'
+            );
     }
 
+    /**
+     *
+     */
     public function getInputFilterSpecification()
     {
-        // TODO: Implement getInputFilterSpecification() method.
+        return
+        [
+            [
+                'name'      => 'username',
+                'required'  => true,
+                'filters'   =>
+                [
+                    ['name' => 'StripTags'],
+                    ['name' => 'StringTrim'],
+                ],
+                'validators' =>
+                [
+                    [
+                        'name' => 'StringLength',
+                        'options' => ['min' => 0]
+                    ]
+                ],
+            ],
+            [
+                'name'      => 'email',
+                'required'  => false,
+                'filters'   =>
+                [
+                    ['name' => 'StringTrim'],
+                ],
+                'validators' =>
+                [
+                    ['name' => 'EmailAddress']
+                ]
+            ],
+            [
+                'name'      => 'firstName',
+                'required'  => false,
+                'filters'   =>
+                [
+                    ['name' => 'StripTags'],
+                    ['name' => 'StringTrim'],
+                ],
+                'validators' =>
+                [
+                    [
+                        'name'    => 'StringLength',
+                        'options' => ['min' => 0]
+                    ]
+                ],
+            ],
+            [
+                'name'      => 'lastName',
+                'required'  => false,
+                'filters'   =>
+                [
+                    ['name' => 'StripTags'],
+                    ['name' => 'StringTrim'],
+                ],
+                'validators' =>
+                [
+                    [
+                        'name'    => 'StringLength',
+                        'options' => ['min' => 0]
+                    ]
+                ],
+            ],
+            [
+                'name' => 'password',
+                'filters' =>
+                [
+                    ['name' => 'StripTags'],
+                    ['name' => 'StringTrim']
+                ],
+                'validators' =>
+                [
+                    [
+                        'name'    => 'StringLength',
+                        'options' => ['min' => 3]
+                    ],
+                ],
+            ],
+        ];
     }
 
 

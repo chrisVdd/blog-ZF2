@@ -1,0 +1,23 @@
+{
+  "name": "edlogics-jquery-knob",
+  "version": "1.13.1",
+  "main": "js/jquery.knob.js",
+  "description": "Nice, downward compatible, touchable, jQuery dial.",
+  "license": "MIT",
+  "ignore": [],
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/banjahman/jQuery-Knob",
+  "_release": "1.13.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.13.1",
+    "commit": "8b5efdbe4f749864589059f5c077a05a1468e70e"
+  },
+  "_source": "https://github.com/banjahman/jQuery-Knob.git",
+  "_target": "^1.13.1",
+  "_originalSource": "edlogics-jquery-knob",
+  "_direct": true
+}

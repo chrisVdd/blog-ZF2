@@ -1,0 +1,24 @@
+{
+  "name": "jquery-knob",
+  "version": "1.13.1",
+  "description": "Nice, downward compatible, touchable, jQuery dial",
+  "main": "dist/jquery.knob.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banjahman/jQuery-Knob.git"
+  },
+  "keywords": [
+    "jquery",
+    "knob",
+    "dial"
+  ],
+  "author": "Ben Quirk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/banjahman/jQuery-Knob/issues"
+  },
+  "homepage": "https://github.com/banjahman/jQuery-Knob#readme"
+}
