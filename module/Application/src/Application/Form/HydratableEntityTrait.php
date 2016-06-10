@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 26/05/2016
- * Time: 13:13
+ * Date: 10/06/2016
+ * Time: 09:48
  */
 
 namespace Application\Form;
@@ -16,7 +16,6 @@ use DoctrineModule\Persistence\ProvidesObjectManager;
  */
 trait HydratableEntityTrait
 {
-
     use ProvidesObjectManager;
 
     /**
@@ -37,7 +36,6 @@ trait HydratableEntityTrait
             return 'DoctrineObject';
         }
 
-        return $this->hydratorName;
+        return $this->hydratoName;
     }
-
 }

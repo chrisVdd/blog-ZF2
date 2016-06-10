@@ -2,17 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 01/06/2016
- * Time: 13:11
+ * Date: 10/06/2016
+ * Time: 10:03
  */
 
 namespace Application\Mapper;
 
-use Application\Entity\AbstractEntity;
 use Application\ServiceManager\ServiceManagerAwareTrait;
 
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use DoctrineORMModule\Options\EntityManager;
+
 use Zend\ServiceManager\ServiceManagerAwareInterface;
 
 /**
@@ -39,7 +39,7 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
     protected $entityClassName;
 
     /**
-     * Get the EntityManager
+     * Get EntityManager
      *
      * @return EntityManager
      * @throws \Exception
@@ -54,7 +54,7 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
 
             } else {
 
-                throw new \Exception('Service entity manager is not set');
+                throw new \Exception('Service Entity Manager is not set');
             }
         }
 
@@ -75,9 +75,8 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
     }
 
     /**
-     * Get EntityRepository
-     *
      * @return EntityRepository
+     * @throws Exception
      * @throws \Exception
      */
     public function getEntityRepository()
@@ -89,7 +88,8 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
                 $this->entityRepository = $this->getEntityManager()->getRepository($this->getEntityClassName());
 
             } else {
-                throw new \Exception('Entity Class is not defined');
+
+                throw new Exception('The Entity Class is not defined');
             }
         }
 
@@ -97,8 +97,6 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
     }
 
     /**
-     * Set the EntityRepository
-     *
      * @param EntityRepository $entityRepository
      * @return $this
      */
@@ -110,8 +108,15 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
     }
 
     /**
-     * Set EntityClassName
-     *
+     * @param $entityClassName
+     * @return string
+     */
+    public function getEntityClassName($entityClassName)
+    {
+        return $this->entityClassName;
+    }
+
+    /**
      * @param $entityClassName
      * @return $this
      */
@@ -123,26 +128,37 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
     }
 
     /**
-     * Get EntityClassName
+     * Begin a transaction
      *
-     * @return string
+     * @return $this
      */
-    public function getEntityClassName()
+    public function transactionBegin()
     {
-        return $this->entityClassName;
+        $this->getEntityManager()->beginTransaction();
+
+        return $this;
     }
 
     /**
-     * Persist Entity
+     * Commit a transaction
      *
-     * @param AbstractEntity $entity
      * @return $this
-     * @throws \Exception
      */
-    public function store(AbstractEntity $entity)
+    public function transactionCommit()
     {
+        $this->getEntityManager()->commit();
 
-        $this->getEntityManager()->persist($entity);
+        return $this;
+    }
+
+    /**
+     * Rollback change
+     *
+     * @return $this
+     */
+    public function transactionRollback()
+    {
+        $this->getEntityManager()->rollback();
 
         return $this;
     }
@@ -161,10 +177,59 @@ class DoctrineAbstract implements ServiceManagerAwareInterface, DoctrineInterfac
 
     /**
      * @return array
-     * @throws \Exception
      */
     public function all()
     {
         return $this->getEntityRepository()->findAll();
     }
+
+    /**
+     * @param string $dql
+     * @param array  $params
+     * @param int    $maxResults
+     * @return mixed|null
+     * @throws Exception
+     */
+    protected function executeDql($dql, array $params = array(), $maxResults = -1)
+    {
+        $repo  = $this->getEntityRepository();
+        $qb    = $repo->createQueryBuilder('corilus_appointment_state');
+        $query = null;
+
+        $query = $qb->getQuery();
+
+        if ($maxResults >= 0) {
+            $query->setMaxResults($maxResults);
+        }
+
+        $query->setDQL($dql);
+
+        if ($params) {
+            $query->setParameters($params);
+        }
+
+        $results = null;
+
+        if ($query) {
+            $results = $query->execute();
+        }
+
+        return $results;
+    }
+
+    /**
+     * Finds entities by a set of criteria.
+     *
+     * @param array      $criteria
+     * @param array|null $orderBy
+     * @param int|null   $limit
+     * @param int|null   $offset
+     *
+     * @return array The objects.
+     */
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->getEntityRepository()->findBy($criteria, $orderBy, $limit, $offset);
+    }
+
 }

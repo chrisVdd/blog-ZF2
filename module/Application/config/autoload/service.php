@@ -14,6 +14,9 @@ return
         [
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
+            'Application\Entity\AbstractFactory',
+            'Application\Service\AbstractFactory',
+            'Application\Mapper\AbstractFactory',
         ],
         'factories' =>
         [

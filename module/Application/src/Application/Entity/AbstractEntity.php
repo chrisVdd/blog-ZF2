@@ -15,7 +15,9 @@ use Zend\Stdlib\ArraySerializableInterface;
  * Class AbstractEntity
  * @package Application\Entity
  */
-abstract class AbstractEntity implements ArraySerializableInterface
+abstract class AbstractEntity implements
+    ArraySerializableInterface,
+    \ArrayAccess
 {
 
     /**

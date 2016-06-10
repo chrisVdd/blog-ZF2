@@ -1,20 +1,18 @@
 <?php
 /**
- * ServiceManagerAwareTrait.php
- * 
- * @date        15 févr. 2013
- * @author      Antoine Delamarre (antoine.delamarre@vaconsulting.lu)
- * @file        ServiceManagerAwareTrait.php
- * @copyright   Copyright (c) VAConsulting - All rights reserved
- * @license     Unauthorized copying of this source code, via any medium is strictly 
- *              prohibited, proprietary and confidential.
+ * Created by PhpStorm.
+ * User: Chris
+ * Date: 10/06/2016
+ * Time: 09:38
  */
+
 namespace Application\ServiceManager;
 
 use Zend\ServiceManager\ServiceManager;
 
 /**
- * Implementation of the ServiceManagerAwareInterface .
+ * Class ServiceManagerAwareTrait
+ * @package Application\ServiceManager
  */
 trait ServiceManagerAwareTrait
 {
@@ -24,20 +22,19 @@ trait ServiceManagerAwareTrait
     protected $serviceManager = null;
 
     /**
-     * Set service locator
+     * Set the ServiceManager
      *
      * @param ServiceManager $serviceManager
-     * @return mixed
+     * @return $this
      */
     public function setServiceManager(ServiceManager $serviceManager)
     {
         $this->serviceManager = $serviceManager;
-
         return $this;
     }
 
     /**
-     * Get service locator
+     * Get the ServiceManager
      *
      * @return ServiceManager
      */

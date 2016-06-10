@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 26/05/2016
- * Time: 13:11
+ * Date: 10/06/2016
+ * Time: 09:46
  */
 
 namespace Application\Form;
@@ -16,9 +16,13 @@ use DoctrineModule\Persistence\ObjectManagerAwareInterface;
  */
 interface HydratableEntityInterface extends ObjectManagerAwareInterface
 {
-
+    /**
+     * @return mixed
+     */
     public function getEntityClassName();
-    
-    public function getHydratorClassName();
 
+    /**
+     * @return mixed
+     */
+    public function getHydratorClassName();
 }

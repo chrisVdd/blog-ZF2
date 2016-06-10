@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Chris
- * Date: 09/06/2016
- * Time: 09:00
- */
 
 namespace Application\Initializer;
 
 use Application\Mapper\DoctrineInterface;
-
 use Zend\ServiceManager\InitializerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -19,20 +12,18 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class Mapper implements InitializerInterface
 {
-
     /**
      * @param $instance
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ServiceLocatorInterface $locator
      * @return mixed
      */
-    public function initialize($instance, ServiceLocatorInterface $serviceLocator)
+    public function initialize($instance, ServiceLocatorInterface $locator)
     {
         if ($instance instanceof DoctrineInterface) {
 
             $entityClassName = str_replace('Mapper', 'Entity', get_class($instance));
 
-            if (class_exists($entityClassName)) {
-
+            if (class_exists($entityClassName)){
                 $instance->setEntityClassName($entityClassName);
             }
         }

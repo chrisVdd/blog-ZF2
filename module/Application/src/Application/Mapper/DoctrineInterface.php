@@ -2,28 +2,30 @@
 /**
  * Created by PhpStorm.
  * User: Chris
- * Date: 01/06/2016
- * Time: 13:11
+ * Date: 10/06/2016
+ * Time: 10:04
  */
 
 namespace Application\Mapper;
 
-
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use DoctrineORMModule\Options\EntityManager;
 
+/**
+ * Interface DoctrineInterface
+ * @package Application\Mapper
+ */
 interface DoctrineInterface
 {
-
     /**
      * Get EntityManager
      *
-     * @return mixed
+     * @return EntityManager
      */
     public function getEntityManager();
 
     /**
-     * Set EntityManager
+     * Get EntityManager
      *
      * @param EntityManager $entityManager
      * @return mixed
@@ -33,7 +35,7 @@ interface DoctrineInterface
     /**
      * Get EntityRepository
      *
-     * @return mixed
+     * @return EntityRepository
      */
     public function getEntityRepository();
 
@@ -41,27 +43,22 @@ interface DoctrineInterface
      * Set EntityRepository
      *
      * @param EntityRepository $entityRepository
-     * @return mixed
      */
     public function setEntityRepository(EntityRepository $entityRepository);
+
+    /**
+     * Get EntityClassName
+     *
+     * @param $entityClassName
+     * @return string
+     */
+    public function getEntityClassName($entityClassName);
 
     /**
      * Set EntityClassName
      *
      * @param $entityClassName
-     *
-     * @return $this
+     * @return mixed
      */
     public function setEntityClassName($entityClassName);
-
-    /**
-     * Get EntityClassName
-     *
-     * @return string
-     */
-    public function getEntityClassName();
-
-
-
-
 }
