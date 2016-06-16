@@ -56,7 +56,7 @@ return
             [
 //                'objectManager' => 'Doctrine\ORM\Entity\Manager',
                 'objectManager' => 'entity_manager',
-                'identityClass' => 'Application\Model\User',
+                'identityClass' => 'Application\Entity\User',
                 'identityProperty' => 'username',
                 'credentialProperty' => 'password',
             ],

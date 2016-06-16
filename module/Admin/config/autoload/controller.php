@@ -12,7 +12,7 @@ return
     [
         'invokables' =>
         [
-            'Admin\Controller\Home' => 'Admin\Controller\HomeController',
+            'admin.home' => 'Admin\Controller\HomeController',
         ],
     ],
 ];

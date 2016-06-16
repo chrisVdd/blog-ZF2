@@ -106,12 +106,12 @@ class UserController extends AbstractActionController
                 /** @var AbstractAdapter $adapter */
                 $adapter = $authService->getAdapter();
 
-                $adapter->setIdentity($data['login']);
+                $adapter->setIdentity($data['username']);
                 $adapter->setCredential($data['password']);
                 $authResult = $authService->authenticate();
 
                 if ($authResult->isValid()) {
-                    return $this->redirect()->toRoute('home');
+                    return $this->redirect()->toRoute('home/admin/index');
                 }
             } else {
 

@@ -7,13 +7,16 @@ return
 [
     'modules' =>
     [
-        'Application',
-        'Admin',
         'ZFTool',
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-        'LosBase',
+        'EdpModuleLayouts',
+
+    // MY MODULES
+        
+        'Application',
+        'Admin',
     ],
     'module_listener_options' =>
     [

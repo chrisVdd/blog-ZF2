@@ -453,10 +453,6 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         ),
         'B' => 
         array (
-            'BjyAuthorize\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/bjyoungblood/bjy-authorize/src',
-            ),
             'Behat\\Transliterator' => 
             array (
                 0 => __DIR__ . '/..' . '/behat/transliterator/src',

@@ -25,7 +25,7 @@ class Login extends Form
             ->setAttribute('class', 'form-horizontal')
 
             ->add([
-                'name' => 'userName',
+                'name' => 'username',
                 'type' => 'text'
             ])
 
@@ -39,7 +39,7 @@ class Login extends Form
                 'type' => 'checkbox',
             ])
 
-            ->setValidationGroup(['userName', 'password'])
+            ->setValidationGroup(['username', 'password'])
         ;
     }
 
