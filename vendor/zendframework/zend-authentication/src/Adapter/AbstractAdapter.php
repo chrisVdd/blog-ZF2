@@ -9,6 +9,10 @@
 
 namespace Zend\Authentication\Adapter;
 
+/**
+ * Class AbstractAdapter
+ * @package Zend\Authentication\Adapter
+ */
 abstract class AbstractAdapter implements ValidatableAdapterInterface
 {
     /**

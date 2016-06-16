@@ -16,6 +16,7 @@
         "doctrine/migrations": "^1.4",
         "los/losbase": "~2.5",
         "evandotpro/edp-module-layouts": "^1.0",
-        "gedmo/doctrine-extensions": "^2.4"
+        "gedmo/doctrine-extensions": "^2.4",
+        "bjyoungblood/bjy-authorize": "1.4.*"
     }
 }

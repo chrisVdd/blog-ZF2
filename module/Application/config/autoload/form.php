@@ -10,6 +10,7 @@ return
         'invokables' =>
         [
             'application.form.register-user' => 'Application\Form\User\Register',
+            'application.form.login-user'    => 'Application\Form\User\Login',
         ],
         'initializers' =>
         [

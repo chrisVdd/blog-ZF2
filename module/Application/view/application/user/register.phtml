@@ -22,28 +22,35 @@ $registerForm->prepare();
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('username')); ?>
+                <?= $this->formElementErrors($registerForm->get('username')); ?>
             </div>
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('email')); ?>
+                <?= $this->formElementErrors($registerForm->get('email')); ?>
             </div>
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('firstName')); ?>
+                <?= $this->formElementErrors($registerForm->get('firstName')); ?>
             </div>
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('lastName')); ?>
+                <?= $this->formElementErrors($registerForm->get('lastName')); ?>
             </div>
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('password')); ?>
+                <?= $this->formElementErrors($registerForm->get('password')); ?>
             </div>
 
             <div class="form-group">
                 <?= $this->formElement($registerForm->get('passwordVerify')); ?>
+                <?= $this->formElementErrors($registerForm->get('passwordVerify')); ?>
             </div>
-        </div><!-- /.box-body -->
+            
+        </div>
 
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>

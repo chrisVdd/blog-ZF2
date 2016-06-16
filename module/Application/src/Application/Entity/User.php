@@ -9,6 +9,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\InputFilter\InputFilterProviderInterface;
 
 /**
  * Class User
@@ -17,8 +18,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-abstract class User extends AbstractEntity
+class User extends AbstractEntity implements
+    EntityInputFilterInterface,
+    InputFilterProviderInterface
 {
+
+    use EntityInputFilterTrait;
 
     /**
      * The user is not active
@@ -38,34 +43,34 @@ abstract class User extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string")
+     * @ORM\Column(name="username", type="string", nullable=false)
      */
     protected $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string")
+     * @ORM\Column(name="email", type="string", nullable=false)
      */
     protected $email;
 
     /**
      * @var string
-     * @ORM\Column(name="password", type="string")
+     * @ORM\Column(name="password", type="string", nullable=false)
      */
     protected $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string")
+     * @ORM\Column(name="firstName", type="string", nullable=false)
      */
     protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string")
+     * @ORM\Column(name="lastName", type="string", nullable=false)
      */
     protected $lastName;
 
@@ -138,7 +143,9 @@ abstract class User extends AbstractEntity
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $password = $this->filter('password', $password);
+        $this->password = (new \Zend\Crypt\Password\Bcrypt())->create($password);
+
         return $this;
     }
 
@@ -158,7 +165,7 @@ abstract class User extends AbstractEntity
      * @param $firstName
      * @return $this
      */
-    public function setDisplayName($firstName)
+    public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
         return $this;
@@ -214,6 +221,8 @@ abstract class User extends AbstractEntity
     public function __construct()
     {
         $this->createDate = new \DateTime();
+        $this->updateDate = new \DateTime();
+        $this->status = self::STATUS_INACTIVE;
     }
 
     /**
@@ -233,119 +242,40 @@ abstract class User extends AbstractEntity
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getInputFilterSpecification()
     {
-        return
+        $specifications =
         [
             [
                 'name'     => 'id',
                 'required' => false,
             ],
             [
-                'name' => 'username',
+                'name'     => 'username',
                 'required' => true,
-                'filters'   =>
-                [
-                    ['name' => 'StringTrim'],
-                ],
-                'validators' =>
-                [
-                    [
-                        'name' => 'StringLength',
-                        'options' =>
-                        [
-                            'min' => 3,
-                            'max' => 30
-                        ],
-                    ],
-                ],
-                [
-                    'name' => 'firstName',
-                    'required' => true,
-                    'filters'   =>
-                    [
-                        ['name' => 'StripTags'],
-                        ['name' => 'StringTrim'],
-                    ],
-                    'validators' =>
-                    [
-                        [
-                            'name' => 'StringLength',
-                            'options' => ['min' => 0]
-                        ]
-                    ],
-                ],
-                [
-                    'name' => 'lastName',
-                    'required' => true,
-                    'filters'   =>
-                    [
-                        ['name' => 'StripTags'],
-                        ['name' => 'StringTrim'],
-                    ],
-                    'validators' =>
-                    [
-                        [
-                            'name' => 'StringLength',
-                            'options' => ['min' => 0]
-                        ]
-                    ],
-                ],
-                [
-                    'name' => 'email',
-                    'required' => true,
-                    'filters'   =>
-                    [
-                        ['name' => 'StringTrim'],
-                    ],
-                    'validators' =>
-                    [
-                        [
-                            'name' => 'EmailAdress',
-                        ]
-                    ],
-                ],
-                [
-                    'name' => 'password',
-                    'filters' =>
-                    [
-                        ['name' => 'StripTags'],
-                        ['name' => 'StringTrim']
-                    ],
-                    'validators' =>
-                    [
-                        [
-                            'name'    => 'StringLength',
-                            'options' => ['min' => 3]
-                        ],
-                    ],
-                ],
-                [
-                    'name'       => 'status',
-                    'required'   => true,
-                    'filters'    =>
-                    [
-                        ['name' => 'Int'],
-                    ],
-                    'validators' => [
-                        [
-                            'name' => 'InArray',
-                            'options' =>
-                            [
-                                'haystack' =>
-                                [
-                                    static::STATUS_INACTIVE,
-                                    static::STATUS_OFFLINE,
-                                    static::STATUS_ONLINE,
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
             ],
-
+            [
+                'name'     => 'email',
+                'required' => true,
+            ],
+            [
+                'name'     => 'password',
+                'required' => true,
+            ],
+            [
+                'name'     => 'firstName',
+                'required' => true,
+            ],
+            [
+                'name'     => 'lastName',
+                'required' => true,
+            ],
         ];
-    }
 
+        return $specifications;
+    }
 
 }

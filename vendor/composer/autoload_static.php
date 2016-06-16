@@ -12,6 +12,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpDocumentor\\Reflection\\' => 25,
+        ),
         'Z' => 
         array (
             'Zend\\XmlRpc\\' => 12,
@@ -67,6 +71,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
             'Zend\\Barcode\\' => 13,
             'Zend\\Authentication\\' => 20,
         ),
+        'W' => 
+        array (
+            'Webmozart\\Assert\\' => 17,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -95,6 +103,12 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
     );
 
     public static $prefixDirsPsr4 = array (
+        'phpDocumentor\\Reflection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
         'Zend\\XmlRpc\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-xmlrpc/src',
@@ -303,6 +317,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-authentication/src',
         ),
+        'Webmozart\\Assert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -346,13 +364,6 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
     );
 
     public static $prefixesPsr0 = array (
-        'p' => 
-        array (
-            'phpDocumentor' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            ),
-        ),
         'Z' => 
         array (
             'ZendXml\\' => 
@@ -442,6 +453,10 @@ class ComposerStaticInit17d5f3cd84f3a8c7b8ac5b549fc22a3c
         ),
         'B' => 
         array (
+            'BjyAuthorize\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/bjyoungblood/bjy-authorize/src',
+            ),
             'Behat\\Transliterator' => 
             array (
                 0 => __DIR__ . '/..' . '/behat/transliterator/src',

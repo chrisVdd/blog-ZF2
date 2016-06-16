@@ -9,7 +9,6 @@
 namespace Application\Form;
 
 use Zend\ServiceManager\InitializerInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -20,15 +19,12 @@ class Initializer implements InitializerInterface
 {
 
     /**
-     * @param $instance
+     * @param \Zend\Form\Form $instance
      * @param ServiceLocatorInterface $serviceLocator
      * @return mixed
      */
     public function initialize($instance, ServiceLocatorInterface $serviceLocator)
     {
-        if ($instance instanceof ServiceLocatorAwareInterface) {
-            $instance->setServiceLocator($serviceLocator);
-        }
 
         if ( $instance instanceof HydratableEntityInterface ) {
 

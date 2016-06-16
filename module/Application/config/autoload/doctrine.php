@@ -54,17 +54,13 @@ return
         [
             'orm_default' =>
             [
-                'object_manager'      => 'Doctrine\ORM\EntityManager',
-                'identity_class'      => 'Application\Entity\User',
-                'identity_property'   => 'username',
-                'credential_property' => 'password',
-
-//                'credential_callable' => function($identity, $credential) {
-//                    $bdCrypt = new \Zend\Crypt\Password\Bcrypt();
-//                    return $bdCrypt->verify($credential, $identity->getPassword());
-//                }
-//                'credential_callable' => 'Application\Service\UserService::verifyHashedPassword',
+//                'objectManager' => 'Doctrine\ORM\Entity\Manager',
+                'objectManager' => 'entity_manager',
+                'identityClass' => 'Application\Model\User',
+                'identityProperty' => 'username',
+                'credentialProperty' => 'password',
             ],
         ],
+
     ],
 ];

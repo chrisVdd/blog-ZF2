@@ -5,7 +5,43 @@
  * Date: 02/06/2016
  * Time: 16:57
  */
+
+$loginForm->prepare();
 ?>
 
 
 <h1>Vue LOGIN</h1>
+
+<div class="box box-primary">
+
+    <div class="box-header with-border">
+        <h3 class="box-title">Login </h3>
+    </div>
+
+    <?= $this->form()->openTag($loginForm) ?>
+
+        <div class="box-body">
+            <div class="form-group">
+                <?= $this->formElement($loginForm->get('userName')) ?>
+                <?= $this->formElementErrors($loginForm->get('userName')); ?>
+            </div>
+
+            <div class="form-group">
+                <?= $this->formElement($loginForm->get('password')) ?>
+                <?= $this->formElementErrors($loginForm->get('password')); ?>
+            </div>
+
+            <div class="form-group">
+                <?= $this->formElement($loginForm->get('rememberMe')) ?>
+                Remember ME
+            </div>
+        </div>
+
+        <div class="box-footer">
+            <button class="btn btn-primary" type="submit">
+                Submit
+            </button>
+        </div>
+    <?= $this->form()->closeTag() ?>
+
+</div>

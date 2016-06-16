@@ -33,3 +33,11 @@ manque:
 
     - REGARDER CE QUI EST FAIT POUR LES SECRETAIRES !
     - VOIR AUSSI INITIALIZER !
+
+
+
+    pour les emails:
+
+        > vagrant ssh
+        > mailcatcher --http-ip=0.0.0.0
+        > aller sur http://192.168.33.10:1080

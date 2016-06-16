@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Chris
  * Date: 10/06/2016
- * Time: 09:38
+ * Time: 12:38
  */
 
 namespace Application\ServiceManager;
@@ -11,7 +11,7 @@ namespace Application\ServiceManager;
 use Zend\ServiceManager\ServiceManager;
 
 /**
- * Class ServiceManagerAwareTrait
+ * Concrete implementation of the ServiceManagerAwareInterface .
  * @package Application\ServiceManager
  */
 trait ServiceManagerAwareTrait
@@ -22,19 +22,20 @@ trait ServiceManagerAwareTrait
     protected $serviceManager = null;
 
     /**
-     * Set the ServiceManager
+     * Set service locator
      *
      * @param ServiceManager $serviceManager
-     * @return $this
+     * @return mixed
      */
     public function setServiceManager(ServiceManager $serviceManager)
     {
         $this->serviceManager = $serviceManager;
+
         return $this;
     }
 
     /**
-     * Get the ServiceManager
+     * Get service locator
      *
      * @return ServiceManager
      */
