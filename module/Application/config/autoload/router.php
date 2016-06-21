@@ -41,7 +41,7 @@ return
                             ],
                             'constraints' =>
                             [
-                                'action' => 'index|register|login|update',
+                                'action' => 'index|register|login|update|profile',
                                 'id'     => '[0-9]+'
                             ],
                         ],

@@ -17,8 +17,9 @@
 
         <!-- Scripts -->
         <?php echo $this->headScript()
-            ->prependFile($this->basePath('bower_components/bootstrap/dist/js/bootstrap.min.js'))
-            ->prependFile($this->basePath('bower_components/jquery/dist/jquery.min.js'))
+            ->prependFile($this->basePath('bower_components/jQuery/jQuery-2.1.4.min.js'))
+            ->appendFile($this->basePath('bower_components/bootstrap/dist/js/bootstrap.min.js'))
+
         ; ?>
 
     </head>

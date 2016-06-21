@@ -69,8 +69,7 @@ class UserController extends AbstractActionController
 
             } else {
 
-            // TODO - ajouter quelque chose de cool pour le cas où le formulaire n'est pas valide
-                echo "form non valide";
+                $this->flashMessenger()->addErrorMessage('Something wrong...');
             }
         }
 
@@ -96,6 +95,7 @@ class UserController extends AbstractActionController
 
         if ($this->request->isPost()) {
 
+            // If form is Valid
             if ($loginForm->isValid()) {
 
                 $data = $loginForm->getData();
@@ -112,22 +112,15 @@ class UserController extends AbstractActionController
 
                 if ($authResult->isValid()) {
 
+                    $this->flashMessenger()->addSuccessMessage('Login is OK');
                     return $this->redirect()->toRoute('home/user/profile');
-//
-//                    if ($data['role'] == UserEntity::ROLE_ADMIN) {
-//
-//                        return $this->redirect()->toRoute('home/admin/index');
-//
-//                    }
-//                    else {
-//
-//                        return $this->redirect()->toRoute('home/user/profile');
-//                    }
                 }
+
+            // If form is NOT Valid
             } else {
 
-                // TODO - ajouter quelque chose de cool pour le cas où le formulaire n'est pas valide
-                echo "form non valide";
+                $this->flashMessenger()->addErrorMessage('ERROR in login');
+                return $this->redirect()->toRoute(('/home/user/index'));
             }
         }
 
@@ -143,6 +136,14 @@ class UserController extends AbstractActionController
      * @return ViewModel
      */
     public function updateAction()
+    {
+        return new ViewModel();
+    }
+
+    /**
+     * @return ViewModel
+     */
+    public function profileAction()
     {
         return new ViewModel();
     }

@@ -52,15 +52,13 @@ class User extends AbstractEntity implements
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="username", type="string", nullable=false)
+     * @ORM\Column(name="username", type="string", nullable=false, unique=true)
      */
     protected $username;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="email", type="string", nullable=false)
+     * @ORM\Column(name="email", type="string", nullable=false, unique=true)
      */
     protected $email;
 
@@ -72,14 +70,12 @@ class User extends AbstractEntity implements
 
     /**
      * @var string
-     *
      * @ORM\Column(name="firstName", type="string", nullable=false)
      */
     protected $firstName;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="lastName", type="string", nullable=false)
      */
     protected $lastName;
@@ -93,7 +89,6 @@ class User extends AbstractEntity implements
 
     /**
      * @var string
-     *
      * @ORM\Column(name="role", type="string", nullable=false)
      */
     protected $role;

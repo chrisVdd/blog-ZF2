@@ -10,39 +10,50 @@ $loginForm->prepare();
 ?>
 
 <div class="container">
-    
-    <h1>Vue LOGIN</h1>
 
-    <div class="box box-primary">
+    <div class="col-md-6 col-md-offset-3">
 
-        <div class="box-header with-border">
-            <h3 class="box-title">Login </h3>
+        <div class="box box-info">
+
+            <div class="box-header with-border">
+                <h3 class="box-title">Login </h3>
+            </div>
         </div>
 
         <?= $this->form()->openTag($loginForm) ?>
 
-        <div class="box-body">
-            <div class="form-group">
-                <?= $this->formElement($loginForm->get('username')) ?>
-                <?= $this->formElementErrors($loginForm->get('username')); ?>
+            <div class="box-body">
+                <?= $this->formElement($loginForm->get('csrf_connect')); ?>
+
+                <div class="form-group">
+                    <?= $this->formLabel($loginForm->get('username')); ?>
+
+                    <div class="col-sms-10">
+                        <?= $this->formElement($loginForm->get('username')) ?>
+                        <?= $this->formElementErrors($loginForm->get('username')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <?= $this->formLabel($loginForm->get('password')); ?>
+
+                    <div class="col-sms-10">
+                        <?= $this->formElement($loginForm->get('password')) ?>
+                        <?= $this->formElementErrors($loginForm->get('password')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <?= $this->formElement($loginForm->get('rememberMe')) ?>
+                    Remember ME
+                </div>
             </div>
 
-            <div class="form-group">
-                <?= $this->formElement($loginForm->get('password')) ?>
-                <?= $this->formElementErrors($loginForm->get('password')); ?>
+            <div class="box-footer">
+                <button class="btn btn-primary" type="submit">
+                    Sign in
+                </button>
             </div>
-
-            <div class="form-group">
-                <?= $this->formElement($loginForm->get('rememberMe')) ?>
-                Remember ME
-            </div>
-        </div>
-
-        <div class="box-footer">
-            <button class="btn btn-primary" type="submit">
-                Submit
-            </button>
-        </div>
         <?= $this->form()->closeTag() ?>
 
     </div>

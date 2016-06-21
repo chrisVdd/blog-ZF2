@@ -36,27 +36,39 @@ class Register extends Form implements
     {
 
         $this
-            ->setAttributes(['class' => 'form'])
+            ->setAttributes(['class' => 'form-horizontal'])
             ->add([
                     'name' => 'username',
                     'type' => 'text',
                     'attributes' =>
                     [
-                        'label'       => 'username',
                         'required'    => true,
-                        'placeholder' => 'Enter username',
-                        'class'       => 'form-control',
+                        'class'       => 'col-sm-10',
                     ],
+                    'options' =>
+                    [
+                        'label' => 'Username',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ]
+                    ]
             ])
             ->add([
                     'name' => 'email',
                     'type' => 'email',
                     'attributes' =>
                     [
-                        'label'       => 'email',
                         'required'    => true,
-                        'placeholder' => 'Enter email',
-                        'class'       => 'form-control',
+                        'class'       => 'col-sm-10',
+                    ],
+                    'options' =>
+                    [
+                        'label' => 'Email',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ]
                     ]
             ])
             ->add([
@@ -64,32 +76,50 @@ class Register extends Form implements
                     'type'       => 'text',
                     'attributes' =>
                     [
-                        'label'       => 'firstName',
                         'required'    => true,
-                        'placeholder' => 'Enter firstName',
-                        'class'       => 'form-control',
+                        'class'       => 'col-sm-10',
                     ],
+                    'options' =>
+                    [
+                        'label' => 'FirstName',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ]
+                    ]
             ])
             ->add([
                     'name'       => 'lastName',
                     'type'       => 'text',
                     'attributes' =>
                     [
-                        'label'       => 'lastName',
                         'required'    => true,
-                        'placeholder' => 'Enter lastName',
-                        'class'       => 'form-control',
+                        'class'       => 'col-sm-10',
                     ],
+                    'options' =>
+                    [
+                        'label' => 'FirstName',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ]
+                    ]
             ])
             ->add([
                     'name'       => 'password',
                     'type'       => 'password',
                     'attributes' =>
                     [
-                        'label'       => 'password',
                         'required'    => true,
-                        'placeholder' => 'Enter password',
-                        'class'       => 'form-control'
+                        'class'       => 'col-sm-10'
+                    ],
+                    'options' =>
+                    [
+                        'label' => 'Password',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ],
                     ],
             ])
             ->add([
@@ -97,25 +127,52 @@ class Register extends Form implements
                     'type'       => 'password',
                     'attributes' =>
                     [
-                        'label'       => 'passwordVerify',
+                        'label'       => 'Password again',
                         'required'    => true,
-                        'placeholder' => 'Password Verify',
-                        'class'       => 'form-control'
                     ],
+                    'options' =>
+                    [
+                        'label' => 'Password',
+                        'label_attributes' =>
+                        [
+                            'class' => 'col-sm-2 control-label'
+                        ],
+                    ],
+                    'validators' =>
+                    [
+                        [
+                            // Use to be sure that passwordVerify is the same as passwordVerify
+                            'name'    => 'Identical',
+                            'options' =>
+                            [
+                                'token' => 'password',
+                            ],
+                        ],
+                    ]
             ])
 
             ->add([
                 'name' => 'role',
                 'type' => 'select',
+                'attributes' =>
+                [
+                    'label'       => 'Choose a role',
+                    'class'       => 'form-control'
+                ],
                 'options' =>
                 [
                     'empty_option' => 'Select you ROLE',
                     'value_options' =>
                     [
-                        User::ROLE_READER,
-                        User::ROLE_ADMIN
-                    ]
-                ]
+                        'admin'  => User::ROLE_ADMIN,
+                        'reader' => User::ROLE_READER
+                    ],
+                    'label' => 'Password',
+                    'label_attributes' =>
+                    [
+                        'class' => 'col-sm-2 control-label'
+                    ],
+                ],
             ])
 
             ->setValidationGroup(

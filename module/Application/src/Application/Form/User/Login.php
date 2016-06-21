@@ -26,12 +26,50 @@ class Login extends Form
 
             ->add([
                 'name' => 'username',
-                'type' => 'text'
+                'type' => 'text',
+                'attributes' =>
+                [
+                    'required'    => true,
+                    'class'       => 'form-control',
+                ],
+                'options' =>
+                [
+                    'label' => 'Username',
+                    'label_attributes' =>
+                    [
+                        'class' => 'col-sm-2 control-label'
+                    ]
+                ]
             ])
 
             ->add([
                 'name' => 'password',
-                'type' => 'password'
+                'type' => 'password',
+                'attributes' =>
+                [
+                    'required'    => true,
+                    'class'       => 'col-sm-10'
+                ],
+                'options' =>
+                [
+                    'label' => 'Password',
+                    'label_attributes' =>
+                    [
+                        'class' => 'col-sm-2 control-label'
+                    ],
+                ],
+            ])
+
+            ->add([
+                'name' => 'csrf_connect',
+                'type' => 'Zend\Form\Element\Csrf',
+                'options' =>
+                [
+                    'csrf_options' =>
+                    [
+                        'timeout' => 600,
+                    ],
+                ],
             ])
 
             ->add([
@@ -39,7 +77,7 @@ class Login extends Form
                 'type' => 'checkbox',
             ])
 
-            ->setValidationGroup(['username', 'password'])
+            ->setValidationGroup(['username', 'password', 'csrf_connect']);
         ;
     }
 
