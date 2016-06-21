@@ -103,6 +103,21 @@ class Register extends Form implements
                         'class'       => 'form-control'
                     ],
             ])
+
+            ->add([
+                'name' => 'role',
+                'type' => 'select',
+                'options' =>
+                [
+                    'empty_option' => 'Select you ROLE',
+                    'value_options' =>
+                    [
+                        User::ROLE_READER,
+                        User::ROLE_ADMIN
+                    ]
+                ]
+            ])
+
             ->setValidationGroup(
                 [
                     'username',
@@ -110,9 +125,21 @@ class Register extends Form implements
                     'firstName',
                     'lastName',
                     'password',
-                    'passwordVerify'
+                    'passwordVerify',
+                    'role'
                 ]
             );
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        /** @var array $roles */
+        $roles = User::getRoles();
+
+        return $roles;
     }
 
     /**

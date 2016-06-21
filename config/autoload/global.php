@@ -19,14 +19,14 @@ return
         [
             'options' =>
             [
-                'host' => '',
-                'connection_class' => 'login',
-                'port' => '2525',
+                'host'              => '',
+                'connection_class'  => 'login',
+                'port'              => '2525',
                 'connection_config' =>
                 [
                     'username' => 'christina.vandd@gmail.com',
                     'password' => 'dougi',
-                    'ssl' => 'tls',
+                    'ssl'      => 'tls',
                 ],
             ],
         ],

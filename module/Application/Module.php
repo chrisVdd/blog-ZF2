@@ -11,7 +11,9 @@ namespace Application;
 
 use Application\Listener\User   as UserListener;
 
+use Zend\EventManager\EventManager;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceManager;
 
@@ -58,9 +60,30 @@ class Module implements AutoloaderProviderInterface
         /** @var ServiceManager $serviceManager */
         $serviceManager = $e->getApplication()->getServiceManager();
 
+        /** @var EventManager $eventManager */
+        $eventManager = $e->getApplication()->getEventManager();
+
         /** @var UserListener $userListener */
         $userListener = $serviceManager->get('application.listener.user');
         $userListener->attach($serviceManager->get('application.service.user')->getEventManager());
+
+//        $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 'dispatch', function($e) {
+//
+//            $controller = $e->getTarget();
+//
+//            $controllerClass = get_class($controller);
+//
+//            $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+//
+//            $config = $e->getApplication()->getServiceManager()->get('config');
+//
+//            if (isset($config['module_layouts'][$moduleNamespace])) {
+//                $controller->layout($config['module_layouts'][$moduleNamespace]);
+//            }
+//        }, 100);
+//
+//        $moduleRouterListener = new ModuleRouteListener();
+//        $moduleRouterListener->attach($eventManager);
     }
 
     /**

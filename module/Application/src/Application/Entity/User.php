@@ -40,8 +40,15 @@ class User extends AbstractEntity implements
      */
     const STATUS_OFFLINE = 4;
 
-    const ROLE_ADMIN    = 'admin';
-    const ROLE_USER     = 'user';
+    /**
+     * The user is the admin
+     */
+    const ROLE_ADMIN = 'admin';
+
+    /**
+     * The user is
+     */
+    const ROLE_READER = 'reader';
 
     /**
      * @var string
@@ -80,14 +87,14 @@ class User extends AbstractEntity implements
     /**
      * @var int
      *
-     * @ORM\Column(name="status", type="integer")
+     * @ORM\Column(name="status", type="integer", nullable=false)
      */
     protected $status;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(name="role", type="string", nullable=false)
      */
     protected $role;
 
@@ -260,7 +267,19 @@ class User extends AbstractEntity implements
      */
     public function isUser()
     {
-        return (self::ROLE_USER == $this->getRole());
+        return (self::ROLE_READER == $this->getRole());
+    }
+
+    /**
+     * @return array
+     */
+    public static function getRoles()
+    {
+        return
+        [
+            static::ROLE_ADMIN,
+            static::ROLE_READER
+        ];
     }
 
     /**
@@ -287,6 +306,7 @@ class User extends AbstractEntity implements
             'firstName' => $this->getFirstName(),
             'lastName'  => $this->getLastName(),
             'status'    => $this->getStatus(),
+            'role'      => $this->getRole()
         ];
     }
 

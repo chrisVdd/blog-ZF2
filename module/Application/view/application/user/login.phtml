@@ -9,16 +9,17 @@
 $loginForm->prepare();
 ?>
 
+<div class="container">
+    
+    <h1>Vue LOGIN</h1>
 
-<h1>Vue LOGIN</h1>
+    <div class="box box-primary">
 
-<div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Login </h3>
+        </div>
 
-    <div class="box-header with-border">
-        <h3 class="box-title">Login </h3>
-    </div>
-
-    <?= $this->form()->openTag($loginForm) ?>
+        <?= $this->form()->openTag($loginForm) ?>
 
         <div class="box-body">
             <div class="form-group">
@@ -42,6 +43,8 @@ $loginForm->prepare();
                 Submit
             </button>
         </div>
-    <?= $this->form()->closeTag() ?>
+        <?= $this->form()->closeTag() ?>
+
+    </div>
 
 </div>

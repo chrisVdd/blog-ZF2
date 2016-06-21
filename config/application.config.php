@@ -12,9 +12,7 @@ return
         'DoctrineModule',
         'DoctrineORMModule',
         'EdpModuleLayouts',
-
     // MY MODULES
-        
         'Application',
         'Admin',
     ],

@@ -17,21 +17,18 @@ return
         'exception_template'       => 'error/index',
         'template_map' =>
         [
-            'admin/layout'            => __DIR__ . '/../../../Admin/view/layout/admin-layout.phtml',
-            'layout/layout'           => __DIR__ . '/../../view/layout/layout.phtml',
+            'layout/application'      => __DIR__ . '/../../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../../view/error/index.phtml',
         ],
         'template_path_stack' =>
         [
-            'application' => __DIR__ . '/../view',
-            'admin'       => __DIR__ . '/../../Admin/view',
+            __DIR__ . '/../../view',
         ],
     ],
     'module_layouts' =>
     [
-        'Application' => 'layout/layout',
-        'Admin'       => 'admin/layout',
+        'Application' => 'layout/application',
     ]
 ];

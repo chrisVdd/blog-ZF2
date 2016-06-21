@@ -111,7 +111,18 @@ class UserController extends AbstractActionController
                 $authResult = $authService->authenticate();
 
                 if ($authResult->isValid()) {
-                    return $this->redirect()->toRoute('home/admin/index');
+
+                    return $this->redirect()->toRoute('home/user/profile');
+//
+//                    if ($data['role'] == UserEntity::ROLE_ADMIN) {
+//
+//                        return $this->redirect()->toRoute('home/admin/index');
+//
+//                    }
+//                    else {
+//
+//                        return $this->redirect()->toRoute('home/user/profile');
+//                    }
                 }
             } else {
 
